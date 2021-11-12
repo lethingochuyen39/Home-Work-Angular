@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng-route</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="abc">
+    <h2>ng-route Demo</h2>
+    <hr>
+    <div id="menu">
+        <ul>
+            <li><a href="#/!">Lily</a></li>
+            <li><a href="#!b">Dahlia</a></li>
+            <li><a href="#!c">Orchids</a></li>
+        </ul>
+    </div>
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module("abc", ["ngRoute"]);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/", { templateUrl: "d02_date.html" })
+                .when("/b", { templateUrl: "d02_include.html" })
+                .when("/c", { templateUrl: "d02_showhide.html" });
+
+        });
+    </script>
+    <p>Click on the links to navigate to flowers</p>
+</body>
+
+</html>

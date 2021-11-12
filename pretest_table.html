@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service-http</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        
+        .menu{
+         border: black solid; 
+        width: 90%;
+        text-align: center;
+        font-weight: bold;
+      
+      }
+      .thu{
+          margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+      }
+      a:hover{
+          text-decoration: none;
+          background-color: rgb(12, 136, 145);
+          
+          color: black;
+          font-weight: bold;
+      }
+      div{
+          margin: 1.5rem;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="thu" >
+        <table class="menu">
+            <tr>
+                <td><a href="pretest_home.html">Home</a></td>
+                <td><a href="pretest_table.html">Food</a></td>
+                <td><a href="pretest.html">Add New Food</a></td>
+                <td><a href="#">About</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container" ng-app="myApp" ng-controller="myCtr">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Menu</h3>
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in ds">
+                            <td>{{x.ID}}</td>
+                            <td>{{x.Name}}</td>
+                            <td>{{x.Price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+    </script>
+    <script>
+        let app = angular.module("myApp", []);
+        app.controller("myCtr", function ($scope, $http) {
+            $http.get("pretest.json").then(function (response) {
+                $scope.ds = response.data;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

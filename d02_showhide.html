@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng-show/ng-hide</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <h2>ng-show/ng-hide Demo</h2>
+    <hr>
+    <div ng-app ng-init="show=true;hide=false">
+       <p>show the picture <input type="checkbox" ng-model="show"></p>
+       <img src="image/baby1.jpg"  width="50%"  ng-show="show">
+       <p>hide the picture <input type="checkbox" ng-model="hide"></p>
+       <img src="image/baby2.jpg" width="50%"  ng-hide="hide">
+    </div>
+
+</body>
+
+</html>

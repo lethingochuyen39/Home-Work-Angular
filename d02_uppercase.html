@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng-filter2</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <h2>ng-filter Uppercase</h2>
+    <hr>
+    <div ng-app="abc" ng-controller="ctr">
+        <h3>Student names: </h3>
+        <ul>
+            <li ng-repeat="x in list">
+                {{x|Uppercase}}
+            </li>
+        </ul>
+        <hr>
+        <p>Search name: <input ng-model="search"></p>
+        <hr>
+        <h3>Result: </h3>
+        <ul>
+            <li ng-repeat="x in list|filter:search">
+                {{x}}
+            </li>
+
+        </ul>
+
+    </div>
+    <script>
+        let app=angular.module("abc",[]);
+        app.controller("ctr",function($scope){
+            $scope.list = ["bao minh","truc duy","dam quan","van truong","thanh long","tram la","ngoc thanh","sar lavi","nguyen toan","van khoa","phuc duy","trong thuat","ngoc huyen"];
+
+        });
+    </script>
+    
+</body>
+</html>

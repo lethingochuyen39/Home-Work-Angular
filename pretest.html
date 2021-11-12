@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+
+        input.ng-pristine {
+            color: yellow;
+        }
+
+        input.ng-dirty.ng-invalid {
+            color: red;
+        }
+
+        input.ng-dirty.ng-valid {
+            color: blue;
+        }
+
+        label {
+            display: inline-block;
+            width: 8rem;
+        }
+
+        input {
+            width: 150px;
+        }
+
+        .menu {
+            border: black solid;
+            width: 90%;
+            text-align: center;
+            font-weight: bold;
+
+        }
+
+        .thu {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        a:hover {
+            text-decoration: none;
+            background-color: rgb(12, 136, 145);
+
+            color: black;
+            font-weight: bold;
+        }
+        .container{
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="thu">
+        <table class="menu">
+            <tr>
+                <td><a href="pretest_home.html">Home</a></td>
+                <td><a href="pretest_table.html">Food</a></td>
+                <td><a href="pretest.html">Add New Food</a></td>
+                <td><a href="#">About</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container" ng-app="myApp" ng-controller="myCtr">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Add Form</h3>
+                <hr>
+                <form name="myForm" ng-submit="addRow();">
+                    <div class="form-group">
+                        <label for="">ID </label>
+                        <input type="text" name="id" ng-model="id" required class="form-control" pattern="F\d{2}">
+
+                        <span class="error" ng-show="myForm.id.$error.required"> ID is Required.</span> <br>
+                        <span class="error" ng-show="myForm.id.$invalid">Student ID has format Sxx, x:digit </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Name </label>
+                        <input type="text" name="name" ng-model="name" required class="form-control">
+                        <span class="error" ng-show="myForm.name.$error.required"> Name is Required.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Price </label>
+                        <input type="number" name="price" ng-model="price" required class="form-control" min="0">
+
+                        <span class="error" ng-show="myForm.price.$error.required">Price is Required.</span> <br>
+                        <span class="error" ng-show="myForm.price.$invalid">Selling price must be greater than 0.
+                        </span>
+                    </div class="form-group">
+
+                    <div>
+                        <input type="submit" value="Add" class="btn btn-danger"
+                            ng-disabled="!myForm.$dirty || (myForm.$dirty && myForm.$invalid)">
+
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+
+        <script>
+            let app = angular.module("myApp", []);
+            app.controller("myCtr", function ($scope, $http) {
+                $http.get("pretest.json").then(function (response) {
+                    $scope.ds = response.data;
+                });
+                $scope.addRow = function () {
+                    $scope.ds.push({ "ID": $scope.ID, "Name": $scope.Name, "Price": $scope.Price });
+
+                    alert("Add new food successfully");
+                }
+
+            });
+
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+[
+    {
+        "ID": "F01",
+        "Name": "Pho",
+        "Price": 30000
+    },
+    {
+        "ID": "F02",
+        "Name": "Bun Bo Hue",
+        "Price": 35000
+    },
+    {
+        "ID": "F03",
+        "Name": "My Quang",
+        "Price": 30000
+    },
+    {
+        "ID": "F04",
+        "Name": "Banh Mi",
+        "Price": 10000
+    }
+]

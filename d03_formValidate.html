@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        *{margin-left: 2rem;}
+        input.ng-pristime{
+            background-color: yellow;
+        }
+        input.ng-touched.ng-invalid{
+            background-color: red;
+        }
+        input.ng-touched.ng-valid{
+            background-color: green;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div class="contaier">
+        <h2>from validate demo</h2>
+        <hr>
+        <div ng-app="">
+            <form action="d03_validMail.html" name="frLog" novalidate>
+                <input type="text" name="fname" required ng-model="fname" placeholder="enter your first name" > <br> <br>
+                <input type="text" name="lname" required ng-model="lname" placeholder="enter your last name"><br> <br>
+                <input type="email" name="email" ng-model="email" required
+                placeholder="enter your email" autocomplete="off"> <br><br>
+                <input type="submit" value="Submit" name="submit">
+
+            </form>
+      
+        </div>
+    </div>
+    
+    
+</body>
+</html>
