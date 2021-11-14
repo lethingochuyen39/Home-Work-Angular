@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Single Page Application Using AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+    <script src="hw_script.js"></script>
+</head>
+
+<body ng-app="single-page-app">
+    <div ng-controller="SPAController">
+        <div>
+            <ul>
+                <li><a href="#/">Home<span> (current page)</span></a></li>
+                <li><a href="#!hw_about">About us</a></li>
+                <li><a href="#!hw_tutorial">Tutorial</a></li>
+            </ul>
+        </div>
+        <div style="background-color: lightgreen" ng-view></div>
+        <br />
+        <br />
+        <br />
+        <hr />
+        <div style="padding-left:50px;padding-right:100px;">
+            {{message}}
+        </div>
+    </div>
+</body>
+
+</html>
