@@ -1,0 +1,7 @@
+[
+    {"id":"s1","product":"sach","type":"A","price":50000},
+    {"id":"s2","product":"sua","type":"B","price":1000},
+    {"id":"s3","product":"but","type":"A","price":20000},
+    {"id":"s4","product":"mi","type":"B","price":5000},
+    {"id":"s5","product":"keo","type":"B","price":5000}
+]

@@ -1,0 +1,20 @@
+footer{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+.menu{
+    border: black solid;
+    color: blue;
+    font-weight: bolder;  
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+a:hover{
+    background-color: gainsboro;
+}
+span{
+    color: red;
+}

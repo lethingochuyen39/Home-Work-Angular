@@ -1,0 +1,42 @@
+<div class="col-md-6" ng-controller="myAbc">
+    <h3>Add Form</h3>
+    <hr>
+    <form name="myForm" ng-submit="addRow();">
+        <div class="form-group">
+            <label for="">ID </label>
+            <input type="text" name="id" ng-model="id" required class="form-control" pattern="s\d{1}">
+
+            <span class="error" ng-show="myForm.id.$error.required"> ID is Required.</span> <br>
+            <span class="error" ng-show="myForm.id.$invalid"> ID must be in the format sx, x:digit</span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Product </label>
+            <input type="text" name="product" ng-model="product" required class="form-control">
+            <span class="error" ng-show="myForm.product.$error.required"> ID is Required.</span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Type </label>
+            <input type="text" name="type" ng-model="type" required class="form-control" pattern="[A,B]">
+            <span class="error" ng-show="myForm.type.$error.required"> Type is Required.</span><br>
+            <span class="error" ng-show="myForm.type.$invalid"> Type must have default of A or B </span>
+            
+        </div>
+
+        <div class="form-group">
+            <label for="">Price </label>
+            <input type="number" name="price" ng-model="price" required class="form-control" min="0">
+
+            <span class="error" ng-show="myForm.price.$error.required">Price is Required.</span> <br>
+            <span class="error" ng-show="myForm.price.$invalid">Selling price must be greater than 0.
+            </span>
+        </div class="form-group">
+
+        <div>
+            <input type="submit" value="Add" class="btn btn-danger"
+                ng-disabled="!myForm.$dirty || (myForm.$dirty && myForm.$invalid)">
+
+        </div>
+    </form>
+</div>
