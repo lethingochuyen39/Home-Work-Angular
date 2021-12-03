@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Single Page Application Using AngularJS</title>
+    <link rel="stylesheet" href="pretest.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+
+
+</head>
+
+<body ng-app="single-page-app">
+    <div ng-controller="SPAController">
+        <div class="thu">
+            <table class="menu">
+                <tr>
+                    <td><a href="#/">Home</a></td>
+                    <td><a href="#!table">Food</a></td>
+                    <td><a href="#!pretest">Add New Food</a></td>
+                    <td><a href="#">About</a></td>
+                </tr>
+            </table>
+        </div>
+        <div ng-view></div>
+        <br>
+        <hr />
+
+    </div>
+</body>
+
+</html>
+<script>
+    var app = angular.module('single-page-app', ['ngRoute']);
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'baitap_index.html'
+            })
+            .when('/table', {
+                templateUrl: 'baitap_table.html'
+            })
+            .when('/pretest', {
+                templateUrl: 'baitap_pretest.html'
+            });
+    });
+    var app2 = angular.module('single-page-app', []);
+    app2.controller('SPAController', function ($scope, $http) {
+        $http.get("pretest.json").then(function (response) {
+            $scope.ds = response.data;
+        });
+        $scope.addRow = function () {
+            $scope.ds.push({ "ID": $scope.ID, "Name": $scope.Name, "Price": $scope.Price });
+
+            alert("Add new food successfully");
+        }
+
+    });
+
+</script>
